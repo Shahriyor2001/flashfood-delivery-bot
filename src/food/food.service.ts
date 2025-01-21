@@ -22,7 +22,7 @@ export class FoodService {
 
       this.bot.sendMessage(
         chatId,
-        `Salom ${name}, bu botdan foydalanish uchun iltimos telefon raqamingizni jonating.`,
+        `Salom ${name}, bu botdan foydalanish uchun telefon raqamingizni jonatishingiz kerak.`,
         {
           reply_markup: {
             keyboard: [
@@ -45,7 +45,7 @@ export class FoodService {
         if (contact) {
           this.bot.sendMessage(
             chatId,
-            `Rahmat! Telefon raqamingiz qabul qilindi: ${userPhone}`,
+            ` Telefon raqamingiz qabul qilindi: ${userPhone}`,
           );
           this.bot.sendMessage(chatId, "Iltimos endi manzilingizni jo'nating");
         }
@@ -57,17 +57,17 @@ export class FoodService {
           userLocation = [location.latitude, location.longitude];
           this.bot.sendMessage(
             chatId,
-            'Rahmat! Sizning manzilingiz qabul qilindi.',
+            'Manzilingiz qabul qilindi.',
           );
 
           this.bot.sendMessage(
             chatId,
-            'Endi iltimos, qanday mahsulot kategoriyasini tanlashingizni belgilab bering:',
+            ' Quyidagi mahsulot kategoriyalaridan birini tanlang:',
             {
               reply_markup: {
                 keyboard: [
                   [{ text: 'Ichimliklar' }],
-                  [{ text: 'Yeguliklar' }],
+                  [{ text: 'Taomlar' }],
                   [{ text: 'Shirinliklar' }],
                 ],
                 one_time_keyboard: true,
@@ -77,22 +77,22 @@ export class FoodService {
             },
           );
 
-          // YEGULIKLAR
-          this.bot.onText(/Yeguliklar/, (msg) => {
+          
+          this.bot.onText(/Taomlar/, (msg) => {
             const chatId = msg.chat.id;
 
             this.bot.sendPhoto(
               chatId,
-              'https://assets.epicurious.com/photos/57c5c6d9cf9e9ad43de2d96e/master/pass/the-ultimate-hamburger.jpg',
+              'https://t3.ftcdn.net/jpg/08/90/37/24/360_F_890372475_jGMWf3dUYjw2Ab3rjZQYPF0PJyYgIjN3.webp',
               {
                 caption:
-                  "Ultimate Hamburger - Mazali burger tayyorlash uchun ideal tanlov! Narxi: 20000 so'm",
+                  "Pishloqli burger -  Narxi: 25000 so'm",
                 reply_markup: {
                   inline_keyboard: [
                     [
                       {
                         text: 'Buyurtma berish',
-                        callback_data: 'order_burger_20000',
+                        callback_data: 'order_burger_25000',
                       },
                     ],
                   ],
@@ -102,16 +102,16 @@ export class FoodService {
 
             this.bot.sendPhoto(
               chatId,
-              'https://www.healthyseasonalrecipes.com/wp-content/uploads/2022/09/mediterranean-lavash-wraps-055.jpg',
+              'https://e7.pngegg.com/pngimages/24/47/png-clipart-bbq-on-white-plate-shish-kebab-doner-kebab-turkish-cuisine-bresaola-kebab-barbecue-food-thumbnail.png',
               {
                 caption:
-                  "Mediterranean Lavash Wrap - Sog'lom va mazali lavash! Narxi: 30000 so'm",
+                  "Turkcha Kabob - Narxi: 35000 so'm",
                 reply_markup: {
                   inline_keyboard: [
                     [
                       {
                         text: 'Buyurtma berish',
-                        callback_data: 'order_lavash_30000',
+                        callback_data: 'order_kabab_35000',
                       },
                     ],
                   ],
@@ -121,16 +121,16 @@ export class FoodService {
 
             this.bot.sendPhoto(
               chatId,
-              'https://img.freepik.com/free-photo/classic-hot-dog-with-ketchup-mustard-sauce-isolated-white-background_123827-29747.jpg?semt=ais_incoming',
+              'https://mojo.generalmills.com/api/public/content/GmHhoT5mr0Sue2oMxdyEig_webp_base.webp?v=868009f1&t=191ddcab8d1c415fa10fa00a14351227',
               {
                 caption:
-                  "Classic Hot Dog - An'anaviy issiq it. Narxi: 15000 so'm",
+                  "Meksikacha Taco -  Narxi: 20000 so'm",
                 reply_markup: {
                   inline_keyboard: [
                     [
                       {
                         text: 'Buyurtma berish',
-                        callback_data: 'order_hotdog_15000',
+                        callback_data: 'order_taco_20000',
                       },
                     ],
                   ],
@@ -140,10 +140,10 @@ export class FoodService {
 
             this.bot.sendPhoto(
               chatId,
-              'https://media.istockphoto.com/id/1442417585/photo/person-getting-a-piece-of-cheesy-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=k60TjxKIOIxJpd4F4yLMVjsniB4W1BpEV4Mi_nb4uJU=',
+              'hhttps://italianfoodforever.com/wp-content/uploads/2015/11/buratapizza-1.jpg',
               {
                 caption:
-                  "Cheesy Pepperoni Pizza - Pitsa, yengil va mazali taom! Narxi: 25000 so'm",
+                  "Motzarella Pishloqli Pitsasi - Narxi: 35000 so'm",
                 reply_markup: {
                   inline_keyboard: [
                     [
@@ -158,22 +158,22 @@ export class FoodService {
             );
           });
 
-          // ICHIMLIKLAR
+          
           this.bot.onText(/Ichimliklar/, (msg) => {
             const chatId = msg.chat.id;
 
             this.bot.sendPhoto(
               chatId,
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3M-xR4PTf-oldWP8s2UWBCDxtZatNqXs1NA&s',
+              'https://purepng.com/public/uploads/large/purepng.com-coca-coladrinks-coca-cola-941524644291ozoln.png',
               {
                 caption:
-                  "Cola - Klassik va mazali cola ichimligi! Narxi: 15000 so'm",
+                  "Coca Cola - Narxi: 18000 so'm",
                 reply_markup: {
                   inline_keyboard: [
                     [
                       {
                         text: 'Buyurtma berish',
-                        callback_data: 'order_cola_15000',
+                        callback_data: 'order_cola_18000',
                       },
                     ],
                   ],
@@ -183,15 +183,15 @@ export class FoodService {
 
             this.bot.sendPhoto(
               chatId,
-              'https://t3.ftcdn.net/jpg/03/23/86/24/360_F_323862457_5RaEzJNg6yeYx6RjbU4WwkAl3R0yxNQt.jpg',
+              'https://purepng.com/public/uploads/large/pepsi-bottle-wet-ss3.png',
               {
-                caption: "Pepsi - Yengil va sodda lazzat! Narxi: 13000 so'm",
+                caption: "Pepsi - Narxi: 15000 so'm",
                 reply_markup: {
                   inline_keyboard: [
                     [
                       {
                         text: 'Buyurtma berish',
-                        callback_data: 'order_pepsi_13000',
+                        callback_data: 'order_pepsi_15000',
                       },
                     ],
                   ],
@@ -201,16 +201,16 @@ export class FoodService {
 
             this.bot.sendPhoto(
               chatId,
-              'https://target.scene7.com/is/image/Target/GUEST_bdd6ab3c-67f1-434e-ac78-1b4baa6f7298?wid=488&hei=488&fmt=pjpeg',
+              'https://pngimg.com/d/fanta_PNG46.png',
               {
                 caption:
-                  "Fanta - Rang-barang va xushbo'y taomlar bilan! Narxi: 12000 so'm",
+                  "Fanta - Narxi: 10000 so'm",
                 reply_markup: {
                   inline_keyboard: [
                     [
                       {
                         text: 'Buyurtma berish',
-                        callback_data: 'order_fanta_12000',
+                        callback_data: 'order_fanta_10000',
                       },
                     ],
                   ],
@@ -220,16 +220,16 @@ export class FoodService {
 
             this.bot.sendPhoto(
               chatId,
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuwfyPonH0cPvqO_SELhyYHAZUmRYluj5n2w&s',
+              'https://www.coca-cola.com/content/dam/onexp/gb/en/product/sprite-low-cal-02.png',
               {
                 caption:
-                  "Sprite - Sovuq va xushbo’y limonli ichimlik! Narxi: 11000 so'm",
+                  "Sprite - Narxi: 10000 so'm",
                 reply_markup: {
                   inline_keyboard: [
                     [
                       {
                         text: 'Buyurtma berish',
-                        callback_data: 'order_sprite_11000',
+                        callback_data: 'order_sprite_10000',
                       },
                     ],
                   ],
@@ -238,22 +238,22 @@ export class FoodService {
             );
           });
 
-          // SHIRINLIKLAR
+          
           this.bot.onText(/Shirinliklar/, (msg) => {
             const chatId = msg.chat.id;
 
             this.bot.sendPhoto(
               chatId,
-              'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQrPOBTd5Hi2OFTsgWc_SNC1VqcmmEFerI0qrTFvczOA-REun7da_2KHSLIG0vXXEVCrrQylViK3OcRZhESu8dKFCVGq0qvRgxjX5JmDQ',
+              'https://img.freepik.com/free-psd/delicious-vanilla-cake-decorated-with-berries-isolated-transparent-background_191095-11774.jpg',
               {
                 caption:
-                  "Chocolate Cake - Shokoladli tort, shirinliklar sevuvchilar uchun ajoyib tanlov! Narxi: 25000 so'm",
+                  "Vanilla Cake - Narxi: 85000 so'm",
                 reply_markup: {
                   inline_keyboard: [
                     [
                       {
                         text: 'Buyurtma berish',
-                        callback_data: 'order_chocolate_cake_25000',
+                        callback_data: 'order_vanilla_cake_85000',
                       },
                     ],
                   ],
@@ -263,16 +263,16 @@ export class FoodService {
 
             this.bot.sendPhoto(
               chatId,
-              'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT0HaBeYP9r42F9vmLuH49OyZ0Ry1v1_M2uk4pLF-6fZzkeTJQfjLyj-JPyHZ9nkLfPzBY5MmmdRxx1yrh_ZIPgjN8h3xTf7ggjve69AQ',
+              'https://www.thespruceeats.com/thmb/uhagoJnNgKrzHARRkHqOrs0a2Cw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/buttery-pie-and-tart-crust-2215809-hero-011-f30fde9492bb4545b35305fa81981cb1.jpg',
               {
                 caption:
-                  "Strawberry Cupcakes - Yangi qulupnay bilan bezatilgan mazali keks! Narxi: 18000 so'm",
+                  "Olchali Pirog - Narxi: 48000 so'm",
                 reply_markup: {
                   inline_keyboard: [
                     [
                       {
                         text: 'Buyurtma berish',
-                        callback_data: 'order_strawberry_cupcake_18000',
+                        callback_data: 'order_cherry_pie_48000',
                       },
                     ],
                   ],
@@ -282,16 +282,16 @@ export class FoodService {
 
             this.bot.sendPhoto(
               chatId,
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqRxk5kyM1etMVpLHgnJK02Cd-9I_NlQxzNg&s',
+              'https://aplantifulpath.com/wp-content/uploads/2019/08/Strawberry-Ice-Cream-1.jpg',
               {
                 caption:
-                  "Ice Cream Sundae - Muzqaymoq va mevali shirinlik! Narxi: 22000 so'm",
+                  "Qulupnayli Muzqaymoq - Narxi: 32000 so'm",
                 reply_markup: {
                   inline_keyboard: [
                     [
                       {
                         text: 'Buyurtma berish',
-                        callback_data: 'order_ice_cream_22000',
+                        callback_data: 'order_ice_cream_32000',
                       },
                     ],
                   ],
@@ -301,16 +301,16 @@ export class FoodService {
 
             this.bot.sendPhoto(
               chatId,
-              'https://www.tfcakes.in/images/products/230202_121111_214_057.jpg',
+              'https://www.elleandpear.com/wp-content/uploads/2024/09/Maple-Chocolate-Walnut-Pie-13.jpg',
               {
                 caption:
-                  "Fruit Tart - Mevalar bilan to'ldirilgan mazali shirinlik! Narxi: 20000 so'm",
+                  "Shokolad va Yong'oqli Pirog - Narxi: 60000 so'm",
                 reply_markup: {
                   inline_keyboard: [
                     [
                       {
                         text: 'Buyurtma berish',
-                        callback_data: 'order_fruit_tart_20000',
+                        callback_data: 'order_Chocolate_pie_60000',
                       },
                     ],
                   ],
@@ -343,7 +343,7 @@ export class FoodService {
 
             this.bot.sendMessage(
               chatId,
-              `${productName} buyurtma qilindi! Narxi: ${price} so\'m`,
+              `${productName} buyurtma qilindi! Narxi: ${price} so'm`,
             );
             this.bot.sendMessage(chatId, 'Buyurtmangiz qabul qilindi.');
           });
